@@ -1,0 +1,144 @@
+<style>
+body{
+background: rgba(19,19,19,1);
+background: -moz-linear-gradient(left, rgba(19,19,19,1) 0%, rgba(28,28,28,1) 9%, rgba(43,43,43,1) 24%, rgba(17,17,17,1) 40%, rgba(0,0,0,1) 49%, rgba(44,44,44,1) 50%, rgba(71,71,71,1) 61%, rgba(102,102,102,1) 75%, rgba(89,89,89,1) 88%, rgba(76,76,76,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(19,19,19,1)), color-stop(9%, rgba(28,28,28,1)), color-stop(24%, rgba(43,43,43,1)), color-stop(40%, rgba(17,17,17,1)), color-stop(49%, rgba(0,0,0,1)), color-stop(50%, rgba(44,44,44,1)), color-stop(61%, rgba(71,71,71,1)), color-stop(75%, rgba(102,102,102,1)), color-stop(88%, rgba(89,89,89,1)), color-stop(100%, rgba(76,76,76,1)));
+background: -webkit-linear-gradient(left, rgba(19,19,19,1) 0%, rgba(28,28,28,1) 9%, rgba(43,43,43,1) 24%, rgba(17,17,17,1) 40%, rgba(0,0,0,1) 49%, rgba(44,44,44,1) 50%, rgba(71,71,71,1) 61%, rgba(102,102,102,1) 75%, rgba(89,89,89,1) 88%, rgba(76,76,76,1) 100%);
+background: -o-linear-gradient(left, rgba(19,19,19,1) 0%, rgba(28,28,28,1) 9%, rgba(43,43,43,1) 24%, rgba(17,17,17,1) 40%, rgba(0,0,0,1) 49%, rgba(44,44,44,1) 50%, rgba(71,71,71,1) 61%, rgba(102,102,102,1) 75%, rgba(89,89,89,1) 88%, rgba(76,76,76,1) 100%);
+background: -ms-linear-gradient(left, rgba(19,19,19,1) 0%, rgba(28,28,28,1) 9%, rgba(43,43,43,1) 24%, rgba(17,17,17,1) 40%, rgba(0,0,0,1) 49%, rgba(44,44,44,1) 50%, rgba(71,71,71,1) 61%, rgba(102,102,102,1) 75%, rgba(89,89,89,1) 88%, rgba(76,76,76,1) 100%);
+background: linear-gradient(to right, rgba(19,19,19,1) 0%, rgba(28,28,28,1) 9%, rgba(43,43,43,1) 24%, rgba(17,17,17,1) 40%, rgba(0,0,0,1) 49%, rgba(44,44,44,1) 50%, rgba(71,71,71,1) 61%, rgba(102,102,102,1) 75%, rgba(89,89,89,1) 88%, rgba(76,76,76,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131313', endColorstr='#4c4c4c', GradientType=1 );
+}
+#vad{
+background:url(vad.png);
+	background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+	
+}
+#hut{
+background:url(hut.png);
+	background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+	right:0;
+}
+.pers{
+	height:50vh;
+	width:50vw;
+	position:absolute;
+	bottom:0;
+
+}
+
+
+
+@-webkit-keyframes arrow_anim {
+   from { margin-top: 58px; }
+     to { margin-top: 67px; }
+}
+
+@-moz-keyframes arrow_anim {
+   from { margin-top: 58px; }
+     to { margin-top: 67px; }
+}
+
+@-ms-keyframes arrow_anim {
+   from { margin-top: 58px; }
+     to { margin-top: 67px; }
+}
+
+@-o-keyframes arrow_anim {
+   from { margin-top: 58px; }
+     to { margin-top: 67px; }
+}
+
+@keyframes arrow_anim {
+   from { margin-top: 58px; }
+     to { margin-top: 67px; }
+}
+
+#arrow {
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid red;
+  height: 0; 
+  margin: 60px 0px 0px 360px;
+  position: absolute;
+  width: 0; 
+  
+  -webkit-animation: arrow_anim .3s steps(3) infinite;
+  -moz-animation: arrow_anim .3s steps(3) infinite;
+  -ms-animation: arrow_anim .3s steps(3) infinite;
+  -o-animation: arrow_anim .3s steps(3) infinite;
+  animation: arrow_anim .3s steps(3) infinite;
+}
+
+.dialog {
+  height: 70px;
+  background: #1c1c1c;
+  border-radius: 5px;
+  box-shadow: 0 0 0 6px #F5EAC8, 0 0 0 12px #251C00;
+  color: #F5EAC8;
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px 20px 20px 20px;
+  position: relative;
+  text-transform: uppercase;
+  word-spacing: 3px;
+  width: 400px;
+}
+#dialog1{
+ position: absolute;
+	right:20px;
+}
+</style>
+<div id="vad" class="pers"></div>
+<div id="hut" class="pers"></div>
+<div class="dialog" id="dialog1"></div>
+<div class="dialog" id="dialog2"></div>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.1/mousetrap.min.js"></script>
+<script>
+var dialogs = ['Привет, меня зовут Евген и я делаю лучший кофе в городе!'],  
+    initial = 0;
+    individual = dialogs[initial].split('');
+	
+var dialogs2 = ['Погоди погоди, ты сейчас серьезно?'],  
+    individual2 = dialogs2[0].split('');
+
+function createDiag ( id, dialog, callback ) {
+  initial = 0;
+  for(i = 0; i < dialog.length; i++) {
+    (function(i){
+        
+      setTimeout(function(){
+        $(id).text($(id).text() +   dialog[i]);
+        if (i == dialog.length-1 ) {
+          $(id).prepend('<div id="arrow" ></div>');
+		   $(id).bind('click', callback);
+          Mousetrap.bind('enter', function() {
+            if (dialogs[initial+1]) {
+              $(id).text('');
+              initial += 1;
+              individual = dialogs[initial].split('');
+              createDiag( individual );
+            }
+          });
+        }
+      }, 50*i);  
+    
+    }(i));
+    
+  }
+
+}
+
+createDiag( '#dialog1', individual , f=>{createDiag( '#dialog2',  individual2, )} );
+
+
+</script>
